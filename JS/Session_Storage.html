@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Storage</title>
+</head>
+<body style="padding: 20px;">
+
+    <h1>SessionStorage & Browser API</h1>
+
+    <button id="btnSession">Set Session</button>
+    <button id="btnCookie">Set Cookie</button>
+    <button id="btnReload">Reload</button>
+    <p id="out"></p>
+
+    <script src="Session_Storage.js"></script>
+    <script>
+        const out = document.getElementById("out");
+
+        document.getElementById("btnSession").addEventListener("click", () => {
+            sessionStorage.setItem("token", "abc123");
+            out.textContent = "Token: " + sessionStorage.getItem("token");
+        });
+
+        document.getElementById("btnCookie").addEventListener("click", () => {
+            document.cookie = "nama=Andi; max-age=86400; path=/";
+            out.textContent = "Cookie: " + document.cookie;
+        });
+
+        document.getElementById("btnReload").addEventListener("click", () => {
+            window.location.reload();
+        });
+    </script>
+
+</body>
+</html>

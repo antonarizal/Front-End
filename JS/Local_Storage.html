@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>LocalStorage</title>
+</head>
+<body style="padding: 20px;">
+
+    <h1>Contoh LocalStorage</h1>
+
+    <button id="btnSave">Simpan</button>
+    <button id="btnRead">Baca</button>
+    <button id="btnClear">Hapus Semua</button>
+    <p id="out"></p>
+
+    <script src="Local_Storage.js"></script>
+    <script>
+        const out = document.getElementById("out");
+
+        document.getElementById("btnSave").addEventListener("click", () => {
+            localStorage.setItem("nama", "Andi");
+            localStorage.setItem("user", JSON.stringify({ nama: "Andi", umur: 25 }));
+            out.textContent = "Data disimpan";
+        });
+
+        document.getElementById("btnRead").addEventListener("click", () => {
+            const nama = localStorage.getItem("nama");
+            const user = JSON.parse(localStorage.getItem("user"));
+            out.textContent = `Nama: ${nama}, User: ${JSON.stringify(user)}`;
+        });
+
+        document.getElementById("btnClear").addEventListener("click", () => {
+            localStorage.clear();
+            out.textContent = "LocalStorage dibersihkan";
+        });
+    </script>
+
+</body>
+</html>
